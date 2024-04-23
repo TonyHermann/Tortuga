@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>花へ</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffc3bf;
+            font-family: Arial, sans-serif;
+        }
+
+        #vertical-text {
+            writing-mode: vertical-rl;
+            text-align: center;
+            font-size: 24px;
+            color: #4a4a4a;
+            /* Color de texto según el contraste */
+        }
+        .tapa {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .on {
+            background: black;
+            z-index: 1100;
+        }
+        
+.pet {
+    width: 50px;
+    height: 50px;
+    background-image: url('https://i.imgur.com/lUTRdWB.png');
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10000;
+    animation: movePet 20s linear infinite;
+}
+
+@keyframes movePet {
+    0% {
+        bottom: 0;
+        left: 0;
+    }
+    25% {
+        bottom: 0;
+        left: calc(100% - 50px);
+    }
+    50% {
+        bottom: calc(100% - 50px);
+        left: calc(100% - 50px);
+    }
+    75% {
+        bottom: calc(100% - 50px);
+        left: 0;
+    }
+    100% {
+        bottom: 0;
+        left: 0;
+    }
+}
+
+.popup-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    display: none;
+}
+
+.popup-content {
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    color: #666;
+}
+
+    </style>
+</head>
+
+<body>
+        <div class="pet"></div>
+    <div class="tapa on"></div>
+
+    <div id="vertical-text">
+        <ruby>冬の末は<rp>(</rp><rt>ふゆの すえは</rt><rp>)</rp></ruby><br>
+        <ruby>君に出逢った秒<rp>(</rp><rt>きみに であった びょう</rt><rp>)</rp></ruby><br>
+        <ruby>春の始まり<rp>(</rp><rt>はるの はじまり</rt><rp>)</rp></ruby><br>
+        <br><br><br>
+        <ruby>私の大切な花へ。<rp>(</rp><rt>わたしの たいせつな はなへ。</rt><rp>)</rp></ruby><br>
+        Antonio.
+    </div>
+</body>
+<script>
+    var tapa = document.querySelector(".tapa")
+    var pasa = false
+    document.addEventListener("DOMContentLoaded", ()=> {
+        while (!pasa) {
+            var inp = prompt("Introduce la contraseña:")
+            if (inp === "HANA") {
+                pasa = true
+                tapa.classList.remove("on")
+            }
+        }
+
+        
+
+    })
+    
+    document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.pet').addEventListener('click', function() {
+        alert("click")
+        // Crear el popup
+        var popupContainer = document.createElement('div');
+        popupContainer.classList.add('popup-container');
+
+        var popupContent = document.createElement('div');
+        popupContent.classList.add('popup-content');
+        popupContent.innerHTML = "Aquí puedes escribir lo que quieras";
+
+        var closeBtn = document.createElement('span');
+        closeBtn.classList.add('close-btn');
+        closeBtn.innerHTML = "&times;";
+
+        // Cerrar el popup al hacer clic en el botón de cerrar
+        closeBtn.addEventListener('click', function() {
+            popupContainer.style.display = 'none';
+        });
+
+        // Agregar los elementos al popup
+        popupContainer.appendChild(closeBtn);
+        popupContainer.appendChild(popupContent);
+
+        // Agregar el popup al cuerpo del documento
+        document.body.appendChild(popupContainer);
+
+        // Mostrar el popup
+        popupContainer.style.display = 'block';
+    });
+});
+    
+</script>
+</html>
