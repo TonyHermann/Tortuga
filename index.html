@@ -131,14 +131,13 @@
     
     document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.pet').addEventListener('click', function() {
-        alert("click")
         // Crear el popup
         var popupContainer = document.createElement('div');
         popupContainer.classList.add('popup-container');
 
         var popupContent = document.createElement('div');
         popupContent.classList.add('popup-content');
-        popupContent.innerHTML = "Aquí puedes escribir lo que quieras";
+        popupContent.innerHTML = "¡Felicidades! <br> Has encontrado este mensaje. <br> Primero que nada y antes que todo, quería agradecerte por todo lo que me brindas. <br> Segundo, espero que disfrutes mucho de tu libro ^-^ (Estaré esperando una reseña para cuando lo termines jeje) <br> Tercero, te quiero mucho. <br> Cuarto, si lees esto, que sepas que sos una persona muy importante para mi."
 
         var closeBtn = document.createElement('span');
         closeBtn.classList.add('close-btn');
